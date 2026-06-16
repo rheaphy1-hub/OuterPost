@@ -87,7 +87,7 @@ const PRODUCTS = [
   { id: 29, name: "Motivation (Not Forced)", sku: "MOT-29", category: "Metamorphosis", stock: 67, description: "Arrives when you actually want it. Doesn't feel like discipline. Suspiciously enjoyable. Users describe it as 'finally getting it.'", specs: { "Type": "Intrinsic", "Feeling": "Natural", "Sustainability": "Long-term" }, icon: "geometric", color: "#C8B8D4" },
   { id: 30, name: "Permission to Stop Trying", sku: "STOP-30", category: "Metamorphosis", stock: 9, description: "Official release. This thing? You can let it go. Notarized by someone who cares about you. Incredibly soothing.", specs: { "Format": "Official document", "Witness": "Someone who loves you", "Relief": "Instant" }, icon: "geometric", color: "#C8B8D4" },
   { id: 31, name: "The Apology You Owe Yourself II (Expanded Edition)", sku: "APOL2-31", category: "Metamorphosis", stock: 53, description: "Extended version. Addresses all of it. Includes forgiveness for the things you haven't told anyone. Read at your own pace.", specs: { "Length": "Comprehensive", "Coverage": "All of it", "Tone": "Gentle, firm" }, icon: "geometric", color: "#C8B8D4" },
-  { id: 32, name: "What You'd Tell Your Younger Self", sku: "YOUNG-32", category: "Metamorphosis", stock: 81, description: "Letter from you now. Spoiler-free. Kind without being patronizing. Changes nothing and everything.", specs: { "Format": "Letter", "Tone": "Honest", "Impact": "Surprisingly deep" }, icon: "geometric", color: "#C8B8D4" },
+  { id: 32, name: "What You'd Tell Your Younger Self", sku: "YOUNG-32", category: "Metamorphosis", stock: 81, description: "Letter from you now. Spoiler-free. Kind without being patronizing. Changes nothing and everything.", specs: { "Format": "Letter", "Handwriting": "Familiar, evolved", "Impact": "Surprisingly deep" }, icon: "geometric", color: "#C8B8D4" },
 ];
 
 function GeometricIcon({ productId, color }) {
@@ -100,6 +100,22 @@ function GeometricIcon({ productId, color }) {
     6: (c) => <svg viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" stroke={c} strokeWidth="2.5" fill="none"/><path d="M 50 35 L 65 50 L 50 65 L 35 50 Z" stroke={c} strokeWidth="2" fill="none" opacity="0.7"/></svg>,
     7: (c) => <svg viewBox="0 0 100 100"><path d="M 28 15 L 28 85 L 72 85 L 72 15 Z" stroke={c} strokeWidth="2.5" fill="none"/><line x1="28" y1="15" x2="72" y2="15" stroke={c} strokeWidth="2"/><circle cx="68" cy="50" r="3" fill={c}/></svg>,
     8: (c) => <svg viewBox="0 0 100 100"><path d="M 20 25 L 80 25 L 80 80 Q 80 90 50 90 Q 20 90 20 80 Z" stroke={c} strokeWidth="2.5" fill="none"/><circle cx="38" cy="50" r="8" fill="none" stroke={c} strokeWidth="1.5" opacity="0.7"/><circle cx="62" cy="50" r="8" fill="none" stroke={c} strokeWidth="1.5" opacity="0.7"/></svg>,
+    9: (c) => <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="28" fill="none" stroke={c} strokeWidth="2.5"/><line x1="50" y1="22" x2="50" y2="32" stroke={c} strokeWidth="2"/><line x1="50" y1="68" x2="50" y2="78" stroke={c} strokeWidth="2"/><line x1="22" y1="50" x2="32" y2="50" stroke={c} strokeWidth="2"/><line x1="68" y1="50" x2="78" y2="50" stroke={c} strokeWidth="2"/><path d="M 50 50 L 60 40" stroke={c} strokeWidth="2.5"/><path d="M 50 50 L 55 65" stroke={c} strokeWidth="2" opacity="0.5"/></svg>,
+    10: (c) => <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="28" fill="none" stroke={c} strokeWidth="2.5"/><line x1="50" y1="22" x2="50" y2="32" stroke={c} strokeWidth="2"/><line x1="50" y1="68" x2="50" y2="78" stroke={c} strokeWidth="2"/><line x1="22" y1="50" x2="32" y2="50" stroke={c} strokeWidth="2"/><line x1="68" y1="50" x2="78" y2="50" stroke={c} strokeWidth="2"/><path d="M 50 50 L 70 35" stroke={c} strokeWidth="2.5"/><path d="M 50 50 L 35 70" stroke={c} strokeWidth="2" opacity="0.5"/></svg>,
+    11: (c) => <svg viewBox="0 0 100 100"><path d="M 20 50 L 35 35 L 50 40 L 65 30 L 80 50 L 75 70 L 25 70 Z" stroke={c} strokeWidth="2.5" fill="none"/><circle cx="35" cy="35" r="3" fill={c}/><circle cx="50" cy="40" r="3" fill={c}/><circle cx="65" cy="30" r="3" fill={c}/></svg>,
+    12: (c) => <svg viewBox="0 0 100 100"><path d="M 50 20 L 75 35 L 75 75 Q 75 85 50 85 Q 25 85 25 75 L 25 35 Z" stroke={c} strokeWidth="2.5" fill="none"/><path d="M 35 45 L 50 55 L 65 45" stroke={c} strokeWidth="2" fill="none" opacity="0.7"/></svg>,
+    13: (c) => <svg viewBox="0 0 100 100"><path d="M 30 35 L 70 35 L 75 75 Q 75 85 50 85 Q 25 85 25 75 Z" stroke={c} strokeWidth="2.5" fill="none"/><line x1="38" y1="45" x2="38" y2="70" stroke={c} strokeWidth="2" opacity="0.6"/><line x1="50" y1="45" x2="50" y2="70" stroke={c} strokeWidth="2" opacity="0.6"/><line x1="62" y1="45" x2="62" y2="70" stroke={c} strokeWidth="2" opacity="0.6"/></svg>,
+    14: (c) => <svg viewBox="0 0 100 100"><path d="M 20 50 Q 35 30 50 35 Q 65 30 80 50 Q 75 75 50 80 Q 25 75 20 50 Z" stroke={c} strokeWidth="2.5" fill="none"/><path d="M 35 50 Q 50 45 65 50" stroke={c} strokeWidth="2" fill="none" opacity="0.6"/></svg>,
+    15: (c) => <svg viewBox="0 0 100 100"><path d="M 50 20 L 78 60 L 65 75 L 35 75 L 22 60 Z" stroke={c} strokeWidth="2.5" fill="none"/><circle cx="50" cy="50" r="8" fill="none" stroke={c} strokeWidth="1.5" opacity="0.7"/><path d="M 50 50 L 55 40" stroke={c} strokeWidth="2" opacity="0.8"/></svg>,
+    16: (c) => <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="28" fill="none" stroke={c} strokeWidth="2.5"/><path d="M 50 50 L 70 35 L 75 55 Z" stroke={c} strokeWidth="2" fill={c} opacity="0.6"/><circle cx="50" cy="50" r="4" fill="none" stroke={c} strokeWidth="1.5"/></svg>,
+    17: (c) => <svg viewBox="0 0 100 100"><path d="M 38 20 L 62 20 L 70 65 Q 70 80 50 85 Q 30 80 30 65 Z" stroke={c} strokeWidth="2.5" fill="none"/><path d="M 42 35 L 58 35 L 55 55 L 45 55 Z" fill={c} opacity="0.5"/></svg>,
+    18: (c) => <svg viewBox="0 0 100 100"><path d="M 30 25 L 70 25 L 75 75 Q 75 85 50 85 Q 25 85 25 75 Z" stroke={c} strokeWidth="2.5" fill="none"/><path d="M 40 40 L 60 40 M 40 55 L 60 55 M 40 70 L 60 70" stroke={c} strokeWidth="2" opacity="0.6"/></svg>,
+    27: (c) => <svg viewBox="0 0 100 100"><path d="M 50 15 L 80 55 L 65 80 L 35 80 L 20 55 Z" stroke={c} strokeWidth="2.5" fill="none"/><circle cx="50" cy="50" r="10" fill="none" stroke={c} strokeWidth="2" opacity="0.7"/></svg>,
+    28: (c) => <svg viewBox="0 0 100 100"><line x1="30" y1="30" x2="70" y2="70" stroke={c} strokeWidth="2.5"/><line x1="70" y1="30" x2="30" y2="70" stroke={c} strokeWidth="2.5"/><circle cx="50" cy="50" r="20" fill="none" stroke={c} strokeWidth="2" opacity="0.5"/></svg>,
+    29: (c) => <svg viewBox="0 0 100 100"><path d="M 50 20 L 75 45 L 75 80 Q 75 90 50 90 Q 25 90 25 80 L 25 45 Z" stroke={c} strokeWidth="2.5" fill="none"/><path d="M 35 50 L 50 65 L 65 50" stroke={c} strokeWidth="2" fill="none" opacity="0.7"/></svg>,
+    30: (c) => <svg viewBox="0 0 100 100"><rect x="22" y="25" width="56" height="50" stroke={c} strokeWidth="2.5" fill="none"/><path d="M 30 50 L 45 60 L 70 35" stroke={c} strokeWidth="2.5" fill="none" opacity="0.8"/></svg>,
+    31: (c) => <svg viewBox="0 0 100 100"><path d="M 32 20 L 68 20 L 78 60 L 68 80 L 32 80 L 22 60 Z" stroke={c} strokeWidth="2.5" fill="none"/><line x1="42" y1="35" x2="58" y2="35" stroke={c} strokeWidth="2" opacity="0.6"/><line x1="42" y1="55" x2="58" y2="55" stroke={c} strokeWidth="2" opacity="0.6"/></svg>,
+    32: (c) => <svg viewBox="0 0 100 100"><path d="M 30 20 L 70 20 L 80 70 Q 80 85 50 85 Q 20 85 20 70 Z" stroke={c} strokeWidth="2.5" fill="none"/><path d="M 50 35 L 50 65 M 40 50 L 60 50" stroke={c} strokeWidth="2" opacity="0.6"/></svg>,
   };
   return iconMap[productId]?.(color) || null;
 }
@@ -147,7 +163,7 @@ const ProductCard = ({ product, onAddToCart, inCart, stock, purchaseCount, daily
       </div>
 
       <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 15, fontWeight: 600, color: "#E8DFF0", margin: 0 }}>{product.name}</h3>
-      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#E8DFF0", margin: 0, lineHeight: 1.5, fontWeight: 500 }}>{product.description}</p>
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#E8DFF0", margin: 0, lineHeight: 1.5, fontWeight: 500 }}>{product.description}</p>
 
       <div style={{ background: "#06040A", borderRadius: 2, padding: 11, border: "1px solid #1a0a2e" }}>
         {Object.entries(product.specs).slice(0, 2).map(([key, val]) => (
@@ -220,35 +236,18 @@ const CartDrawer = ({ cart, onRemove, onCheckout, onClose, isMobile }) => {
 };
 
 const CheckoutModal = ({ cart, onClose, onComplete, isMobile }) => {
-  const [formData, setFormData] = useState({ name: "", email: "", platform: "" });
-  const [selectedPlatform, setSelectedPlatform] = useState("");
-  
   const handleCheckout = () => {
-    if (formData.name && formData.email && selectedPlatform) {
-      if (selectedPlatform === "instagram") {
-        window.open("https://instagram.com/the.outer.post", "_blank");
-      } else if (selectedPlatform === "tiktok") {
-        window.open("https://www.tiktok.com/@theouterpost", "_blank");
-      }
-      onComplete();
-      onClose();
-    }
+    window.open("https://instagram.com/the.outer.post", "_blank");
+    onComplete();
+    onClose();
   };
 
   return (
     <div style={{ position: "fixed", inset: 0, background: "#00000080", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 10000, padding: 16 }}>
       <div style={{ background: "#06040A", border: "1px solid #1a0a2e", borderRadius: 4, padding: 24, maxWidth: 480, width: "100%" }}>
         <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 18, fontWeight: 600, color: "#E8DFF0", margin: "0 0 12px", letterSpacing: "1px" }}>HAUL TIME</h2>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#D4C5E8", marginBottom: 20, lineHeight: 1.5 }}>Confirm your haul, then screenshot & post to prove you got stuff that doesn't exist.</p>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
-          <input type="text" placeholder="Your Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} style={{ background: "#0d0618", border: "1px solid #1a0a2e", borderRadius: 2, padding: 12, color: "#E8DFF0", fontFamily: "'Inter', sans-serif", fontSize: 14 }} />
-          <input type="email" placeholder="Email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} style={{ background: "#0d0618", border: "1px solid #1a0a2e", borderRadius: 2, padding: 12, color: "#E8DFF0", fontFamily: "'Inter', sans-serif", fontSize: 14 }} />
-          <div style={{ display: "flex", gap: 8 }}>
-            <button onClick={() => setSelectedPlatform("instagram")} style={{ flex: 1, background: selectedPlatform === "instagram" ? "#4DFFC3" : "transparent", border: "1px solid " + (selectedPlatform === "instagram" ? "#4DFFC3" : "#1a0a2e"), borderRadius: 2, padding: 12, cursor: "pointer", color: selectedPlatform === "instagram" ? "#06040A" : "#D4C5E8", fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600 }}>Instagram</button>
-            <button onClick={() => setSelectedPlatform("tiktok")} style={{ flex: 1, background: selectedPlatform === "tiktok" ? "#4DFFC3" : "transparent", border: "1px solid " + (selectedPlatform === "tiktok" ? "#4DFFC3" : "#1a0a2e"), borderRadius: 2, padding: 12, cursor: "pointer", color: selectedPlatform === "tiktok" ? "#06040A" : "#D4C5E8", fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600 }}>TikTok</button>
-          </div>
-        </div>
-        <button onClick={handleCheckout} disabled={!formData.name || !formData.email || !selectedPlatform} style={{ width: "100%", background: formData.name && formData.email && selectedPlatform ? "#FF6B9D" : "#1a0a2e", color: formData.name && formData.email && selectedPlatform ? "#E8DFF0" : "#2a1a3a", border: "none", borderRadius: 2, padding: 14, cursor: formData.name && formData.email && selectedPlatform ? "pointer" : "not-allowed", fontFamily: "'Cinzel', serif", fontSize: 14, fontWeight: 600, letterSpacing: "1px" }}>COMPLETE & FOLLOW</button>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#D4C5E8", marginBottom: 20, lineHeight: 1.5 }}>Screenshot your cart & post to Instagram @The.Outer.Post. Tag us and show the world what you got.</p>
+        <button onClick={handleCheckout} style={{ width: "100%", background: "#4DFFC3", border: "none", color: "#06040A", borderRadius: 2, padding: 14, cursor: "pointer", fontFamily: "'Cinzel', serif", fontSize: 14, fontWeight: 600, letterSpacing: "1px" }}>FOLLOW & CONTINUE</button>
       </div>
     </div>
   );
@@ -292,9 +291,9 @@ export default function App() {
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
         {Array.from({ length: 70 }).map((_, i) => (<div key={i} style={{ position: "absolute", left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`, width: 2, height: 2, borderRadius: "50%", background: Math.random() > 0.85 ? "#4DFFC3" : "#C8B8D4", opacity: Math.random() * 0.4 + 0.1, animation: `twinkle ${Math.random() * 5 + 2}s ease-in-out ${Math.random() * 4}s infinite`, "--op": Math.random() * 0.4 + 0.1 }} />))}
       </div>
-      <header style={{ position: "sticky", top: 0, zIndex: 100, background: "#06040Aee", backdropFilter: "blur(14px)", borderBottom: "1px solid #1a0a2e", padding: isMobile ? "12px 16px" : "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: isMobile ? 56 : 62 }}>
+      <header style={{ position: "sticky", top: 0, zIndex: 100, background: "#06040Aee", backdropFilter: "blur(14px)", borderBottom: "1px solid #1a0a2e", padding: isMobile ? "12px 16px" : "0 32px", display: "flex", alignItems: "center", justifyContent: "center", height: isMobile ? 56 : 62 }}>
         <h1 style={{ fontFamily: "'Cinzel', serif", fontSize: isMobile ? 15 : 18, fontWeight: 700, letterSpacing: "2px", color: "#E8DFF0" }}>THE <span style={{ color: "#4DFFC3" }}>OUTER</span>POST</h1>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div style={{ position: "absolute", right: isMobile ? 16 : 32, display: "flex", alignItems: "center", gap: 8 }}>
           {purchaseCount > 0 && <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#4DFFC3", letterSpacing: "1px", fontWeight: 600 }}>{purchaseCount}/3 TODAY</div>}
           <button onClick={() => setCartOpen(true)} style={{ background: "transparent", border: "1px solid #2a1540", borderRadius: 1, padding: "8px 12px", cursor: "pointer", color: "#D4C5E8", fontFamily: "'Cinzel', serif", fontSize: 12, letterSpacing: "1.5px", display: "flex", alignItems: "center", gap: 6, minHeight: "44px", fontWeight: 600 }}>
             ⬡ {cart.length > 0 && <span style={{ background: "#4DFFC3", color: "#06040A", borderRadius: "50%", width: 18, height: 18, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700 }}>{cart.length}</span>}
