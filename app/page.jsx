@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import REVIEWS from './reviews.js';
 
 const PRODUCTS = [
   // ETHEREAL GOODS
@@ -102,94 +103,9 @@ function TarotCard({ productId, color }) {
   return tarotMap[productId]?.(color) || null;
 }
 
-function ReviewsModal({ product, onClose }) {
-  const reviewsMap = {
-    1: [
-      { author: "alex", rating: 5, text: "Bottled all the silence in my life. My family finally left me alone.", date: "2 days ago" },
-      { author: "jordan", rating: 5, text: "Used this in a meeting. Everyone got very uncomfortable. 10/10", date: "1 week ago" },
-    ],
-    2: [
-      { author: "casey", rating: 5, text: "Drank it before my presentation. I said everything I meant. Promoted.", date: "3 days ago" },
-      { author: "morgan", rating: 4, text: "Works TOO well. Said things I can't take back. Still worth it.", date: "1 week ago" },
-    ],
-    3: [
-      { author: "sam", rating: 5, text: "Honestly? Helped me process everything. Cried for 2 hours. Felt better after.", date: "4 days ago" },
-      { author: "alex", rating: 5, text: "Opened it at 3am. Best worst decision ever.", date: "2 weeks ago" },
-    ],
-    4: [
-      { author: "jordan", rating: 5, text: "It genuinely predates me. Hung it in my office. Everyone asks about it.", date: "5 days ago" },
-      { author: "casey", rating: 4, text: "Arrived scratched but the shadow didn't seem to care.", date: "1 week ago" },
-    ],
-    5: [
-      { author: "morgan", rating: 5, text: "Read it when I was ready. Changed my perspective entirely.", date: "3 days ago" },
-      { author: "sam", rating: 5, text: "This letter knew me better than I know myself.", date: "10 days ago" },
-    ],
-    6: [
-      { author: "alex", rating: 5, text: "Finally have proof. Nobody believes me but I KNOW.", date: "1 week ago" },
-      { author: "jordan", rating: 5, text: "Framed this. It's my favorite possession now.", date: "2 weeks ago" },
-    ],
-    19: [
-      { author: "casey", rating: 5, text: "Every photo of them: GONE. They have no idea.", date: "3 days ago" },
-      { author: "morgan", rating: 5, text: "This works. I tested it. Their phone is now clean.", date: "1 week ago" },
-    ],
-    20: [
-      { author: "sam", rating: 5, text: "Reading all 47 was painful. They really did care.", date: "2 days ago" },
-      { author: "jordan", rating: 5, text: "The progression from hopeful to desperate broke me.", date: "5 days ago" },
-    ],
-    21: [
-      { author: "alex", rating: 5, text: "Spent 24 hours as them. I finally understand why they left.", date: "1 week ago" },
-      { author: "casey", rating: 5, text: "Emotional. Devastating. Recommended.", date: "2 weeks ago" },
-    ],
-    22: [
-      { author: "morgan", rating: 5, text: "The subtext was BRUTAL. They're definitely mad.", date: "3 days ago" },
-      { author: "sam", rating: 5, text: "Translation: 'I'm furious and you should know why.'", date: "1 week ago" },
-    ],
-    27: [
-      { author: "jordan", rating: 5, text: "Opened it. Applied for the job. Got it.", date: "2 days ago" },
-      { author: "casey", rating: 5, text: "This vial changed my life. No exaggeration.", date: "1 week ago" },
-    ],
-    30: [
-      { author: "alex", rating: 5, text: "Permission to rest. Actually rested. Revolutionary.", date: "3 days ago" },
-      { author: "morgan", rating: 5, text: "Read this when I was burnt out. Needed this so badly.", date: "1 week ago" },
-    ],
-  };
-
-  const productReviews = reviewsMap[product.id] || [
-    { author: "user", rating: 5, text: "Exactly what I needed.", date: "Recently" },
-    { author: "visitor", rating: 5, text: "Incredible quality.", date: "Recently" },
-  ];
-
-  return (
-    <div style={{ position: "fixed", inset: 0, background: "#06040Add", backdropFilter: "blur(8px)", zIndex: 2500, display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
-      <div style={{ background: "linear-gradient(145deg, #06040A, #0d0618)", border: "1px solid #2a1540", borderRadius: 8, width: "100%", maxWidth: 480, maxHeight: "80vh", overflowY: "auto", padding: 28, position: "relative" }}>
-        <button onClick={onClose} style={{ position: "absolute", top: 14, right: 16, background: "none", border: "none", color: "#3a2a4a", fontSize: 18, cursor: "pointer" }}>✕</button>
-        <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 16, color: "#E8DFF0", margin: "0 0 8px", letterSpacing: "2px" }}>{product.name}</h2>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, color: "#5a3a6a", margin: "0 0 20px" }}>{productReviews.length} reviews</p>
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {productReviews.map((review, idx) => (
-            <div key={idx} style={{ background: "#0d0618", border: "1px solid #1a0a2e", borderRadius: 2, padding: 14 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#C8B8D4", margin: 0, fontWeight: 600 }}>{review.author}</p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 9, color: "#5a3a6a", margin: 0 }}>{review.date}</p>
-              </div>
-              <div style={{ marginBottom: 8 }}>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} style={{ color: i < review.rating ? "#4DFFC3" : "#2a1a3a", marginRight: 4 }}>★</span>
-                ))}
-              </div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, color: "#7a5a8a", margin: 0, lineHeight: 1.5 }}>{review.text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, dailyLimit }) {
   const [hovered, setHovered] = useState(false);
   const [added, setAdded] = useState(false);
-  const [reviewsOpen, setReviewsOpen] = useState(false);
   const isOutOfStock = stock === 0;
   const limitReached = purchaseCount >= dailyLimit;
   const isTarot = product.icon === "tarot";
@@ -239,11 +155,6 @@ function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, daily
         <div style={{ height: 2, background: "#1a0a2e", borderRadius: 1, overflow: "hidden", marginBottom: 10 }}>
           <div style={{ height: "100%", width: `${Math.max(5, (stock / PRODUCTS.find(p => p.id === product.id).stock) * 100)}%`, background: stock < 5 && stock > 0 ? "#FFD166" : isOutOfStock ? "#3a2a4a" : product.color }} />
         </div>
-        <button 
-          onClick={() => setReviewsOpen(true)}
-          style={{ width: "100%", background: "transparent", border: "1px solid #2a1540", color: "#5a3a6a", fontFamily: "'Inter', sans-serif", fontSize: 9, padding: "8px", cursor: "pointer", borderRadius: 1, marginBottom: 10 }}>
-          REVIEWS
-        </button>
       </div>
 
       {limitReached && <div style={{ color: "#FF6B4A", fontSize: 9, letterSpacing: "1px", fontWeight: 600, textAlign: "center", padding: "8px 0" }}>DAILY LIMIT REACHED</div>}
@@ -254,7 +165,26 @@ function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, daily
           {added ? "✓ ADDED" : inCart ? "IN CART" : limitReached ? "LIMIT" : isOutOfStock ? "OUT" : "ACQUIRE"}
         </button>
       </div>
-      {reviewsOpen && <ReviewsModal product={product} onClose={() => setReviewsOpen(false)} />}
+
+      {/* REVIEWS SECTION */}
+      <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid #1a0a2e" }}>
+        <p style={{ fontFamily: "'Cinzel', serif", fontSize: 11, color: "#C8B8D4", margin: "0 0 12px", letterSpacing: "1px" }}>REVIEWS</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          {(REVIEWS[product.id] || []).map((review, idx) => (
+            <div key={idx} style={{ background: "#0d0618", border: "1px solid #1a0a2e", borderRadius: 2, padding: 11 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, color: "#C8B8D4", margin: 0, fontWeight: 600 }}>{review.author}</p>
+              </div>
+              <div style={{ marginBottom: 6 }}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span key={i} style={{ color: i < review.rating ? "#4DFFC3" : "#2a1a3a", marginRight: 3, fontSize: 9 }}>★</span>
+                ))}
+              </div>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 9, color: "#7a5a8a", margin: 0, lineHeight: 1.4 }}>{review.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
