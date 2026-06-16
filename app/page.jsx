@@ -295,15 +295,13 @@ function CartDrawer({ cart, onRemove, onCheckout, onClose, isMobile }) {
 
 function CheckoutModal({ cart, onClose, onComplete, isMobile }) {
   const [step, setStep] = useState(1);
-  const [platform, setPlatform] = useState(null); // Track which platform they followed on
+  const [platform, setPlatform] = useState(null);
   const orderNumber = "ORD-" + Math.floor(100000 + Math.random() * 900000);
   const haulRef = useRef(null);
 
   useEffect(() => {
-    // Auto-open follow page on mount
     if (step === 1) {
       const timer = setTimeout(() => {
-        // Ask which platform they want to follow on
         setStep(2);
       }, 500);
       return () => clearTimeout(timer);
@@ -319,7 +317,6 @@ function CheckoutModal({ cart, onClose, onComplete, isMobile }) {
       window.open("https://www.tiktok.com/@theouterpost", "_blank");
     }
     
-    // After they follow (and come back), show haul
     setTimeout(() => {
       setStep(3);
     }, 2000);
@@ -330,7 +327,6 @@ function CheckoutModal({ cart, onClose, onComplete, isMobile }) {
       <div style={{ background: "linear-gradient(145deg, #06040A, #0d0618)", border: "1px solid #2a1540", borderRadius: isMobile ? "16px 16px 0 0" : 2, width: "100%", maxWidth: isMobile ? "100%" : 520, maxHeight: "90vh", overflowY: "auto", padding: isMobile ? 22 : 40 }}>
         <button onClick={onClose} style={{ position: "absolute", top: 14, right: 16, background: "none", border: "none", color: "#3a2a4a", fontSize: 18, cursor: "pointer" }}>✕</button>
 
-        {/* Step 1: Order Confirmation (hidden, auto-transitions) */}
         {step === 1 && (
           <>
             <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 20, color: "#E8DFF0", margin: "0 0 8px", letterSpacing: "2px" }}>ORDER CONFIRMED</h2>
@@ -342,7 +338,6 @@ function CheckoutModal({ cart, onClose, onComplete, isMobile }) {
           </>
         )}
 
-        {/* Step 2: Choose Platform to Follow */}
         {step === 2 && (
           <>
             <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 20, color: "#E8DFF0", margin: "0 0 8px", letterSpacing: "2px" }}>FOLLOW @THE OUTER POST</h2>
@@ -368,13 +363,11 @@ function CheckoutModal({ cart, onClose, onComplete, isMobile }) {
           </>
         )}
 
-        {/* Step 3: Show Haul to Screenshot */}
         {step === 3 && (
           <>
             <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 20, color: "#E8DFF0", margin: "0 0 8px", letterSpacing: "2px" }}>YOUR HAUL</h2>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#5a3a6a", margin: "0 0 24px" }}>Screenshot and share to your story.</p>
 
-            {/* Haul Preview */}
             <div ref={haulRef} style={{ background: "linear-gradient(145deg, #0d0618, #160828)", border: "1px solid #4DFFC322", borderRadius: 2, padding: 16, marginBottom: 24, display: "flex", flexDirection: "column", gap: 14 }}>
               <div style={{ textAlign: "center", marginBottom: 8 }}>
                 <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 14, color: "#4DFFC3", margin: 0, letterSpacing: "1px" }}>MY THE OUTER POST HAUL</h3>
@@ -414,18 +407,18 @@ function CheckoutModal({ cart, onClose, onComplete, isMobile }) {
 }
 
 export default function App() {
-const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [stocks, setStocks] = useState({ ...stockState });
   const [filter, setFilter] = useState("ALL");
   const [purchaseCount, setPurchaseCount] = useState(() => {
+    if (typeof window === 'undefined') return 0;
     const saved = localStorage.getItem("riftmarket_daily_purchases");
     const lastReset = localStorage.getItem("riftmarket_last_reset");
     const today = new Date().toDateString();
     
-    // Reset if it's a new day
     if (lastReset !== today) {
       localStorage.setItem("riftmarket_last_reset", today);
       localStorage.setItem("riftmarket_daily_purchases", "0");
@@ -434,16 +427,17 @@ const [isMobile, setIsMobile] = useState(false);
     
     return parseInt(saved || "0", 10);
   });
-  const DAILY_LIMIT = 999; // Disabled for testing
+  const DAILY_LIMIT = 999;
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Update localStorage whenever purchaseCount changes
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     localStorage.setItem("riftmarket_daily_purchases", purchaseCount.toString());
   }, [purchaseCount]);
 
