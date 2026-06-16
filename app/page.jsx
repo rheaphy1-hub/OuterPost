@@ -414,7 +414,7 @@ function CheckoutModal({ cart, onClose, onComplete, isMobile }) {
 }
 
 export default function App() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+const [isMobile, setIsMobile] = useState(false);
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
