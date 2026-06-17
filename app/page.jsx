@@ -256,7 +256,7 @@ function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, daily
     setTimeout(() => setAdded(false), 1200);
   };
 
-  const btnLabel = added ? "✓ ADDED" : inCart ? "IN CART" : limitReached ? "LIMIT REACHED" : isOutOfStock ? "OUT OF STOCK" : "ACQUIRE";
+  const btnLabel = added ? "✓ ADDED" : inCart ? "IN CART" : limitReached ? "LIMIT REACHED" : isOutOfStock ? "OUT OF STOCK" : "ADD TO CART";
   const btnActive = !inCart && !limitReached && !isOutOfStock;
 
   return (
@@ -277,7 +277,7 @@ function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, daily
     >
       {/* Product Image or Icon */}
       {PRODUCT_IMAGES[product.id] ? (
-        <div style={{ width: "100%", height: 180, borderRadius: 2, overflow: "hidden", marginBottom: 12, position: "relative" }}>
+        <div style={{ width: "100%", height: "clamp(120px, 28vw, 200px)", borderRadius: 2, overflow: "hidden", marginBottom: 12, position: "relative" }}>
           <img
             src={PRODUCT_IMAGES[product.id]}
             alt={product.name}
@@ -1395,10 +1395,10 @@ export default function App() {
       </div>
       <header style={{ position: "sticky", top: 0, zIndex: 100, background: "#06040Aee", backdropFilter: "blur(14px)", borderBottom: "1px solid #1a0a2e", padding: isMobile ? "12px 16px" : "0 32px", display: "flex", alignItems: "center", justifyContent: "center", height: isMobile ? 56 : 62 }}>
         <h1 onClick={handleAdminTap} style={{ fontFamily: "'Cinzel', serif", fontSize: isMobile ? 14 : 16, fontWeight: 700, letterSpacing: "2px", color: "#E8DFF0", cursor: "pointer", userSelect: "none" }}>THE <span style={{ color: "#4DFFC3" }}>OUTER</span>POST</h1>
-        <div style={{ position: "absolute", right: isMobile ? 16 : 32, display: "flex", alignItems: "center", gap: 8 }}>
-          {purchaseCount > 0 && <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 8, color: "#4DFFC3", letterSpacing: "1px" }}>{purchaseCount}/3 TODAY</div>}
-          <button onClick={() => setCartOpen(true)} style={{ background: "transparent", border: "1px solid #2a1540", borderRadius: 1, padding: "8px 12px", cursor: "pointer", color: "#C8B8D4", fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: "1.5px", display: "flex", alignItems: "center", gap: 6, minHeight: "44px" }}>
-            ⬡ {cart.length > 0 && <span style={{ background: "#4DFFC3", color: "#06040A", borderRadius: "50%", width: 18, height: 18, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, fontWeight: 700 }}>{cart.length}</span>}
+        <div style={{ position: "absolute", right: isMobile ? 12 : 32, display: "flex", alignItems: "center", gap: isMobile ? 4 : 8 }}>
+          {purchaseCount > 0 && !isMobile && <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 8, color: "#4DFFC3", letterSpacing: "1px" }}>{purchaseCount}/3 TODAY</div>}
+          <button onClick={() => setCartOpen(true)} style={{ background: "transparent", border: "1px solid #2a1540", borderRadius: 1, padding: isMobile ? "6px 8px" : "8px 12px", cursor: "pointer", color: "#C8B8D4", fontFamily: "'Cinzel', serif", fontSize: isMobile ? 9 : 10, letterSpacing: "1.5px", display: "flex", alignItems: "center", gap: isMobile ? 4 : 6, minHeight: isMobile ? "40px" : "44px" }}>
+            ⬡ {cart.length > 0 && <span style={{ background: "#4DFFC3", color: "#06040A", borderRadius: "50%", width: 16, height: 16, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 8, fontWeight: 700 }}>{cart.length}</span>}
           </button>
         </div>
       </header>
@@ -1448,7 +1448,11 @@ export default function App() {
           </p>
         </div>
         <div className="grid">
-          {filtered.map(product => (<ProductCard key={product.id} product={product} onAddToCart={addToCart} inCart={cart.some(i => i.id === product.id)} stock={stocks[product.id]} purchaseCount={purchaseCount} dailyLimit={DAILY_LIMIT} userReviews={userReviews} />))}
+          {filtered.sort((a, b) => {
+            const aHasImg = !!PRODUCT_IMAGES[a.id];
+            const bHasImg = !!PRODUCT_IMAGES[b.id];
+            return bHasImg - aHasImg; // true (1) sorts before false (0)
+          }).map(product => (<ProductCard key={product.id} product={product} onAddToCart={addToCart} inCart={cart.some(i => i.id === product.id)} stock={stocks[product.id]} purchaseCount={purchaseCount} dailyLimit={DAILY_LIMIT} userReviews={userReviews} />))}
         </div>
       </main>
       {cartOpen && <div onClick={() => setCartOpen(false)} style={{ position: "fixed", inset: 0, background: "#00000055", zIndex: 999 }} />}
