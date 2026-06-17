@@ -21,53 +21,53 @@ const PRODUCT_IMAGES = {
 
 const PRODUCTS = [
   // ETHEREAL GOODS
-  { id: 1, name: "Bottled Silence", sku: "SILENCE-001", category: "Ethereal Goods", stock: 26, description: "Pure unfiltered silence harvested from the void. 400ml. Do not open during conversations.", specs: { "Volume": "400ml", "Origin": "Sector Ω-7", "Warning": "Creates social friction" }, icon: "geometric", color: "#4DFFC3" },
-  { id: 2, name: "Liquified Confidence", sku: "CONF-002", category: "Ethereal Goods", stock: 56, description: "Pour into coffee. Lasts 4 hours. You'll say things you meant. Reorder rate: suspiciously high.", specs: { "Volume": "250ml", "Duration": "4 hours", "Side Effect": "You might do something wild" }, icon: "geometric", color: "#4DFFC3" },
-  { id: 3, name: "Regret (Concentrated)", sku: "REGRET-003", category: "Ethereal Goods", stock: 10, description: "Experience every bad decision at once. Comes with a stress ball shaped like your choices. Recommended for 3am alone.", specs: { "Format": "Vial", "Duration": "2-3 hours", "Best Used": "Late night, ice cream nearby" }, icon: "geometric", color: "#4DFFC3" },
+  { id: 1, name: "Bottled Silence", sku: "SILENCE-001", category: "Ethereal Goods", stock: 26, description: "Pure unfiltered silence harvested from the void. 400ml. Do not open during conversations.", specs: { "Volume": "400ml", "Origin": "Sector Ω-7", "Warning": "Creates social friction" }, lore: "Found in a sector that broadcasts nothing. The void has been quiet for longer than records exist. Three previous buyers returned their bottles. The bottles never arrived at the warehouse.", icon: "geometric", color: "#4DFFC3" },
+  { id: 2, name: "Liquified Confidence", sku: "CONF-002", category: "Ethereal Goods", stock: 56, description: "Pour into coffee. Lasts 4 hours. You'll say things you meant. Reorder rate: suspiciously high.", specs: { "Volume": "250ml", "Duration": "4 hours", "Side Effect": "You might do something wild" }, lore: "The source is unclear. Each batch ferments slightly differently. One buyer reported it tasted like their own voice from 10 years ago. Another says it tastes like someone else's confidence entirely.", icon: "geometric", color: "#4DFFC3" },
+  { id: 3, name: "Regret (Concentrated)", sku: "REGRET-003", category: "Ethereal Goods", stock: 10, description: "Experience every bad decision at once. Comes with a stress ball shaped like your choices. Recommended for 3am alone.", specs: { "Format": "Vial", "Duration": "2-3 hours", "Best Used": "Late night, ice cream nearby" }, lore: "Extracted from decision forks where 'no' was chosen instead. The concentration is such that experiencing it provides clarity, but clarity of what was avoided, not what remains. Users report they understand their mistakes after, but cannot explain how.", icon: "geometric", color: "#4DFFC3" },
 
   // PERSONAL EFFECTS
-  { id: 4, name: "Your Shadow, Pressed & Framed", sku: "SHADOW-004", category: "Personal Effects", stock: 63, description: "Your shadow, professionally preserved. Predates you by 11 minutes. Frame certified by something wearing your handwriting.", specs: { "Dimensions": "16\" x 20\"", "Age": "Always ahead of you", "Authenticity": "Legally ambiguous" }, icon: "geometric", color: "#9B6EFF" },
-  { id: 6, name: "Proof You Were Right", sku: "RIGHT-006", category: "Personal Effects", stock: 10, description: "Timestamped receipts notarized by entities outside this dimension. You were right all along.", specs: { "Format": "Official ledger", "Notary": "Interdimensional", "Useful": "Emotionally" }, icon: "geometric", color: "#9B6EFF" },
+  { id: 4, name: "Your Shadow, Pressed & Framed", sku: "SHADOW-004", category: "Personal Effects", stock: 63, description: "Your shadow, professionally preserved. Predates you by 11 minutes. Frame certified by something wearing your handwriting.", specs: { "Dimensions": "16\" x 20\"", "Age": "Always ahead of you", "Authenticity": "Legally ambiguous" }, lore: "Shadows here exist independently of their sources for 11 minutes after detachment. This window was discovered by accident. Your shadow was caught during this window. It has aged normally despite existing outside causality.", icon: "geometric", color: "#9B6EFF" },
+  { id: 6, name: "Proof You Were Right", sku: "RIGHT-006", category: "Personal Effects", stock: 10, description: "Timestamped receipts notarized by entities outside this dimension. You were right all along.", specs: { "Format": "Official ledger", "Notary": "Interdimensional", "Useful": "Emotionally" }, lore: "The notaries are unverifiable. The ledger updates itself with new entries sometimes. One buyer discovered an entry from a decision they hadn't made yet. They made it anyway.", icon: "geometric", color: "#9B6EFF" },
 
   // ARCHITECTURAL
-  { id: 7, name: "A Door That Wasn't There Yesterday", sku: "DOOR-007", category: "Architectural", stock: 9, description: "Standard door. Opens onto different hallways each time. Ships disassembled. Previous owners describe the smell as 'familiar but impossible to place.'", specs: { "Dimensions": "32\" x 80\"", "Destinations": "Unknown", "Material": "Resembles oak (probably)" }, icon: "geometric", color: "#FFD166" },
-  { id: 8, name: "A Room You've Never Seen Before (But Remember)", sku: "ROOM-008", category: "Architectural", stock: 20, description: "Assembled from places you only dreamed about. Square footage impossible. Lighting always golden hour. Comes with eerie sense of home.", specs: { "Lighting": "Always golden hour", "Memory": "False but real", "Deja vu": "Extreme" }, icon: "geometric", color: "#FFD166" },
+  { id: 7, name: "A Door That Wasn't There Yesterday", sku: "DOOR-007", category: "Architectural", stock: 9, description: "Standard door. Opens onto different hallways each time. Ships disassembled. Previous owners describe the smell as 'familiar but impossible to place.'", specs: { "Dimensions": "32\" x 80\"", "Destinations": "Unknown", "Material": "Resembles oak (probably)" }, lore: "Previous owners describe consistent hallways, then contradicting hallways. The door opens to the same place twice only once. Shipping reports suggest it arrived at a location it was never sent to.", icon: "geometric", color: "#FFD166" },
+  { id: 8, name: "A Room You've Never Seen Before (But Remember)", sku: "ROOM-008", category: "Architectural", stock: 20, description: "Assembled from places you only dreamed about. Square footage impossible. Lighting always golden hour. Comes with eerie sense of home.", specs: { "Lighting": "Always golden hour", "Memory": "False but real", "Deja vu": "Extreme" }, lore: "The phone number belongs to someone no longer reachable. The recordings are from calls never placed. Each playback reveals new details you didn't notice before. The voice sometimes sounds like yours.", icon: "geometric", color: "#FFD166" },
 
   // TEMPORAL OBJECTS
-  { id: 9, name: "3:47 AM (Cursed Hour, 1987)", sku: "HOUR-009", category: "Temporal Objects", stock: 72, description: "A specific moment in time. Single owner. Never fully experienced. Comes in velvet case. Still ticking. Not responsible for what you remember.", specs: { "Time": "3:47 AM", "Year": "1987", "Condition": "Still ticking" }, icon: "geometric", color: "#FFD166" },
-  { id: 10, name: "24 Hours of Being Right", sku: "RIGHT-TIME-010", category: "Temporal Objects", stock: 6, description: "One day where you're right about everything. Includes retroactive arguments from your entire life. Everyone will hate you. Time resets at midnight.", specs: { "Duration": "24 hours", "Scope": "All arguments ever", "Downside": "Social consequences" }, icon: "geometric", color: "#FFD166" },
+  { id: 9, name: "3:47 AM (Cursed Hour, 1987)", sku: "HOUR-009", category: "Temporal Objects", stock: 72, description: "A specific moment in time. Single owner. Never fully experienced. Comes in velvet case. Still ticking. Not responsible for what you remember.", specs: { "Time": "3:47 AM", "Year": "1987", "Condition": "Still ticking" }, lore: "Found in a recovery server that should not exist. The text is to you, about something specific, but written as though you already knew. Decryption reveals timestamps that predate the phone model.", icon: "geometric", color: "#FFD166" },
+  { id: 10, name: "24 Hours of Being Right", sku: "RIGHT-TIME-010", category: "Temporal Objects", stock: 6, description: "One day where you're right about everything. Includes retroactive arguments from your entire life. Everyone will hate you. Time resets at midnight.", specs: { "Duration": "24 hours", "Scope": "All arguments ever", "Downside": "Social consequences" }, lore: "You record a message. It's stored in a device that forwards mail temporally. Delivery date unknown. Sometimes buyers hear responses before sending the original. Some report the device is still waiting for something.", icon: "geometric", color: "#FFD166" },
 
   // AUDIO
-  { id: 11, name: "Echo of a Conversation You Never Had", sku: "ECHO-011", category: "Audio", stock: 71, description: "Stored in amber. The words you needed to hear. Warm, urgent, exactly right. Source person unidentified.", specs: { "Medium": "Amber", "Duration": "3:47", "Clarity": "Perfect" }, icon: "geometric", color: "#4DFFC3" },
-  { id: 12, name: "The Voicemail They Left at 4am (After Tequila)", sku: "VOICEMAIL-012", category: "Audio", stock: 57, description: "Drunk rambling. Says your name 6 times. Contradicts itself. Cuts off mid-word. You'll know exactly what they meant.", specs: { "Time": "4:17 AM", "Clarity": "Slurred", "Name Mentions": "6" }, icon: "geometric", color: "#4DFFC3" },
-  { id: 13, name: "Their 'Getting Over You' Playlist", sku: "PLAYLIST-013", category: "Audio", stock: 25, description: "47 tracks. Some sad. Some about you. Some about someone else. Some suspicious. 3:12 hours of their attempt to move on.", specs: { "Songs": "47", "Duration": "3:12", "About You": "Unclear" }, icon: "geometric", color: "#4DFFC3" },
-  { id: 14, name: "The Last 12 Minutes of a Dream", sku: "DREAM-014", category: "Audio", stock: 78, description: "Cassette tape. Side A: the dream. Someone was in it. The ending felt important. Side B is blank but warm.", specs: { "Format": "Cassette", "Duration": "12 minutes", "Side B": "Blank, warm" }, icon: "geometric", color: "#4DFFC3" },
+  { id: 11, name: "Echo of a Conversation You Never Had", sku: "ECHO-011", category: "Audio", stock: 71, description: "Stored in amber. The words you needed to hear. Warm, urgent, exactly right. Source person unidentified.", specs: { "Medium": "Amber", "Duration": "3:47", "Clarity": "Perfect" }, lore: "Stored in amber from a location that doesn't appear on maps anymore. The words needed are always exactly what the listener requires. We don't know how it knows.", icon: "geometric", color: "#4DFFC3" },
+  { id: 12, name: "The Voicemail They Left at 4am (After Tequila)", sku: "VOICEMAIL-012", category: "Audio", stock: 57, description: "Drunk rambling. Says your name 6 times. Contradicts itself. Cuts off mid-word. You'll know exactly what they meant.", specs: { "Time": "4:17 AM", "Clarity": "Slurred", "Name Mentions": "6" }, lore: "The timestamp is always 4:17 AM, regardless of time zone. The drunk logic is internally consistent. Some buyers report the slurred name-saying is oddly coherent. Others say it cuts off differently each listen.", icon: "geometric", color: "#4DFFC3" },
+  { id: 13, name: "Their 'Getting Over You' Playlist", sku: "PLAYLIST-013", category: "Audio", stock: 25, description: "47 tracks. Some sad. Some about you. Some about someone else. Some suspicious. 3:12 hours of their attempt to move on.", specs: { "Songs": "47", "Duration": "3:12", "About You": "Unclear" }, lore: "Track 23 is always a song that doesn't exist. Track 47 is silence, then a single word. The playlist duration is always exactly the duration it should take to forget someone, but the timing is never the same.", icon: "geometric", color: "#4DFFC3" },
+  { id: 14, name: "The Last 12 Minutes of a Dream", sku: "DREAM-014", category: "Audio", stock: 78, description: "Cassette tape. Side A: the dream. Someone was in it. The ending felt important. Side B is blank but warm.", specs: { "Format": "Cassette", "Duration": "12 minutes", "Side B": "Blank, warm" }, lore: "The dream is consistent across all copies. Someone is in it. Neuroscientists have declined to analyze the cassette. Side B is genuinely blank—thermal imaging shows no hidden content—but listeners report hearing something.", icon: "geometric", color: "#4DFFC3" },
 
   // NAVIGATION
-  { id: 15, name: "Map to a Place That Only Exists When You're Asleep", sku: "MAP-015", category: "Navigation", stock: 57, description: "Hand-drawn on paper that wasn't made here. Landmarks: the tall building, the school that isn't yours, the ocean always too close.", specs: { "Scale": "Unreliable", "Landmarks": "3 (maybe 4)", "Accuracy": "Only when dreaming" }, icon: "geometric", color: "#4DFFC3" },
-  { id: 16, name: "GPS to Your Best Decision", sku: "GPS-016", category: "Navigation", stock: 74, description: "Points toward the choice you should make. Battery life unpredictable. Accuracy approximately 45%. Warranty void if questioned.", specs: { "Accuracy": "45%", "Battery": "Sometimes", "Warranty": "Void" }, icon: "geometric", color: "#4DFFC3" },
+  { id: 15, name: "Map to a Place That Only Exists When You're Asleep", sku: "MAP-015", category: "Navigation", stock: 57, description: "Hand-drawn on paper that wasn't made here. Landmarks: the tall building, the school that isn't yours, the ocean always too close.", specs: { "Scale": "Unreliable", "Landmarks": "3 (maybe 4)", "Accuracy": "Only when dreaming" }, lore: "Hand-drawn on paper from a manufacturing location we cannot identify. The landmarks are sometimes in different positions. The scale is different every time you measure it. Some buyers report the map updating itself.", icon: "geometric", color: "#4DFFC3" },
+  { id: 16, name: "GPS to Your Best Decision", sku: "GPS-016", category: "Navigation", stock: 74, description: "Points toward the choice you should make. Battery life unpredictable. Accuracy approximately 45%. Warranty void if questioned.", specs: { "Accuracy": "45%", "Battery": "Sometimes", "Warranty": "Void" }, lore: "Battery behavior is unpredictable in consistent ways. Accuracy is 45% when you don't second-guess it, dropping to 12% when you do. One buyer claims it stopped working after they made the correct decision.", icon: "geometric", color: "#4DFFC3" },
 
   // FUTURE ARTIFACTS
-  { id: 17, name: "Fossilized Premonition (Unverified)", sku: "PREM-017", category: "Future Artifacts", stock: 24, description: "Encased in obsidian. Radiometric dating places origin at 'soon.' Contents permanently sealed. Do not microwave.", specs: { "Casing": "Obsidian", "Dating": "Future (approximate)", "Warning": "Do not microwave" }, icon: "geometric", color: "#FFD166" },
-  { id: 18, name: "The Version of You From 5 Years Ahead", sku: "FUTURE-YOU-018", category: "Future Artifacts", stock: 85, description: "Letter from future you. Contains advice weirdly specific to now. Handwriting almost yours but slightly evolved. Open when you need it most.", specs: { "Format": "Sealed letter", "Handwriting": "Familiar, evolved", "When": "You'll know" }, icon: "geometric", color: "#FFD166" },
+  { id: 17, name: "Fossilized Premonition (Unverified)", sku: "PREM-017", category: "Future Artifacts", stock: 24, description: "Encased in obsidian. Radiometric dating places origin at 'soon.' Contents permanently sealed. Do not microwave.", specs: { "Casing": "Obsidian", "Dating": "Future (approximate)", "Warning": "Do not microwave" }, lore: "Radiometric dating is impossible—the test results contradict themselves. The obsidian casing is older and newer than the contents simultaneously. Do not microwave. Three users disregarded this warning. We don't know what happened to them.", icon: "geometric", color: "#FFD166" },
+  { id: 18, name: "The Version of You From 5 Years Ahead", sku: "FUTURE-YOU-018", category: "Future Artifacts", stock: 85, description: "Letter from future you. Contains advice weirdly specific to now. Handwriting almost yours but slightly evolved. Open when you need it most.", specs: { "Format": "Sealed letter", "Handwriting": "Familiar, evolved", "When": "You'll know" }, lore: "The handwriting is nearly identical but not quite. The advice is specific enough to be helpful, vague enough to cause concern. One buyer reports the letter included instructions they haven't followed yet. Another claims the letter arrived in yesterday's mail.", icon: "geometric", color: "#FFD166" },
 
   // BIOCHEMISTRY (Love/Relationships) - TAROT STYLE
-  { id: 19, name: "Digital Vaporizer", sku: "VAPOR-019", category: "Biochemistry", stock: 50, description: "Vaporizes any image of you from their device permanently. No trace. They'll never know. Range: interdimensional.", specs: { "Range": "Everywhere", "Reversibility": "No", "Guilt": "Manageable" }, icon: "tarot", color: "#FF6B9D" },
-  { id: 20, name: "The Drafts Folder of Texts They Almost Sent", sku: "DRAFTS-020", category: "Biochemistry", stock: 2, description: "47 unsent messages. Desperation increases with each draft. Last one cuts off mid-word. Read the progression.", specs: { "Messages": "47", "Progression": "Desperate", "Last One": "Incomplete" }, icon: "tarot", color: "#FF6B9D" },
-  { id: 21, name: "Body Swap Ray", sku: "SWAP-021", category: "Biochemistry", stock: 26, description: "24 hours in their body. Experience exactly what they felt, saw, thought. Comes with overwhelming guilt and new understanding.", specs: { "Duration": "24 hours", "What You'll Know": "Everything", "Cost": "High" }, icon: "tarot", color: "#FF6B9D" },
-  { id: 22, name: "The 'I'm Not Mad' Text (Decoded)", sku: "DECODED-022", category: "Biochemistry", stock: 36, description: "Their exact text with real-time translation. Spoiler: they're mad. Very mad. This will hurt.", specs: { "Translation": "Accurate", "Subtext": "They're angry", "Honesty": "Brutal" }, icon: "tarot", color: "#FF6B9D" },
-  { id: 23, name: "Your Rank in Their Search History", sku: "RANK-023", category: "Biochemistry", stock: 59, description: "How often they searched you vs their ex vs random stuff. Last 24 months. Comparison unflinching. Results may hurt.", specs: { "Period": "24 months", "Comparison": "Brutal", "Recommendation": "Maybe don't look" }, icon: "tarot", color: "#FF6B9D" },
-  { id: 24, name: "Their Honest Opinion (Sealed)", sku: "HONEST-024", category: "Biochemistry", stock: 6, description: "Bottled. Their actual unfiltered opinion about you. Sealed. Do not open unless certain you're ready. May cause breakage.", specs: { "Format": "Sealed bottle", "Contents": "Unfiltered truth", "Recommendation": "Don't open" }, icon: "tarot", color: "#FF6B9D" },
-  { id: 25, name: "Selective Memory Wipe", sku: "WIPE-025", category: "Biochemistry", stock: 46, description: "Choose which memories to keep, which to delete. Warning: you can't choose which details disappear with them. Recovery disorienting.", specs: { "Control": "Theoretical", "Consequences": "Unpredictable", "You'll Miss": "Everything" }, icon: "tarot", color: "#FF6B9D" },
-  { id: 26, name: "Closure (Bottled)", sku: "CLOSURE-026", category: "Biochemistry", stock: 7, description: "Pop the cork. Feel complete. Satisfaction not guaranteed. Most users report it tastes like expensive lies. Return rate surprisingly high.", specs: { "Format": "Sealed bottle", "Effect": "Temporary", "Taste": "Complicated" }, icon: "tarot", color: "#FF6B9D" },
+  { id: 19, name: "Digital Vaporizer", sku: "VAPOR-019", category: "Biochemistry", stock: 50, description: "Vaporizes any image of you from their device permanently. No trace. They'll never know. Range: interdimensional.", specs: { "Range": "Everywhere", "Reversibility": "No", "Guilt": "Manageable" }, lore: "Range testing suggests it affects devices across dimensional boundaries. Three previous owners attempted to cancel orders but couldn't locate their own devices. The return process involves filling out forms in a language that changes.", icon: "tarot", color: "#FF6B9D" },
+  { id: 20, name: "The Drafts Folder of Texts They Almost Sent", sku: "DRAFTS-020", category: "Biochemistry", stock: 2, description: "47 unsent messages. Desperation increases with each draft. Last one cuts off mid-word. Read the progression.", specs: { "Messages": "47", "Progression": "Desperate", "Last One": "Incomplete" }, lore: "Text 23 is always incomprehensible. Text 47 cuts off mid-word consistently across all copies. Listeners report understanding the incomplete message better than the completed ones. The desperation timeline doesn't follow any schedule.", icon: "tarot", color: "#FF6B9D" },
+  { id: 21, name: "Body Swap Ray", sku: "SWAP-021", category: "Biochemistry", stock: 26, description: "24 hours in their body. Experience exactly what they felt, saw, thought. Comes with overwhelming guilt and new understanding.", specs: { "Duration": "24 hours", "What You'll Know": "Everything", "Cost": "High" }, lore: "The mechanism is unknown. The duration is always exactly 24 hours. Previous users report returning with knowledge they actively wish they didn't have. Emotional resolution in 3 documented cases, disorientation in 47.", icon: "tarot", color: "#FF6B9D" },
+  { id: 22, name: "The 'I'm Not Mad' Text (Decoded)", sku: "DECODED-022", category: "Biochemistry", stock: 36, description: "Their exact text with real-time translation. Spoiler: they're mad. Very mad. This will hurt.", specs: { "Translation": "Accurate", "Subtext": "They're angry", "Honesty": "Brutal" }, lore: "Translation is real-time and accurate. Users report the translation changes context they're reading it in. One buyer claims the subtext became visible in other texts after reading this. Another says reading it changed how they interpret silence.", icon: "tarot", color: "#FF6B9D" },
+  { id: 23, name: "Your Rank in Their Search History", sku: "RANK-023", category: "Biochemistry", stock: 59, description: "How often they searched you vs their ex vs random stuff. Last 24 months. Comparison unflinching. Results may hurt.", specs: { "Period": "24 months", "Comparison": "Brutal", "Recommendation": "Maybe don't look" }, lore: "24-month data is always complete. The ranking is brutal and accurate. One buyer found themselves ranked below a misspelled version of their own name. Another found they weren't searched for at all.", icon: "tarot", color: "#FF6B9D" },
+  { id: 24, name: "Their Honest Opinion (Sealed)", sku: "HONEST-024", category: "Biochemistry", stock: 6, description: "Bottled. Their actual unfiltered opinion about you. Sealed. Do not open unless certain you're ready. May cause breakage.", specs: { "Format": "Sealed bottle", "Contents": "Unfiltered truth", "Recommendation": "Don't open" }, lore: "The bottle is genuinely sealed. Previous buyers report the seal is unbreakable without destroying the bottle. We have one case where a buyer claims they read the opinion through the glass. We don't know if this is possible.", icon: "tarot", color: "#FF6B9D" },
+  { id: 25, name: "Selective Memory Wipe", sku: "WIPE-025", category: "Biochemistry", stock: 46, description: "Choose which memories to keep, which to delete. Warning: you can't choose which details disappear with them. Recovery disorienting.", specs: { "Control": "Theoretical", "Consequences": "Unpredictable", "You'll Miss": "Everything" }, lore: "Control is theoretical. What disappears alongside the target memory is unpredictable. One buyer forgot a memory and lost the ability to recall their mother's face—different thing entirely. Recovery is disorienting in ways that can't be articulated.", icon: "tarot", color: "#FF6B9D" },
+  { id: 26, name: "Closure (Bottled)", sku: "CLOSURE-026", category: "Biochemistry", stock: 7, description: "Pop the cork. Feel complete. Satisfaction not guaranteed. Most users report it tastes like expensive lies. Return rate surprisingly high.", specs: { "Format": "Sealed bottle", "Effect": "Temporary", "Taste": "Complicated" }, lore: "The cork is ordinary. The contents taste different to each person. Satisfaction is temporary but consistent. Return rate is high because people want to know if it works differently the second time.", icon: "tarot", color: "#FF6B9D" },
 
   // METAMORPHOSIS (Self-Development)
-  { id: 27, name: "Confidence You Didn't Know You Had", sku: "CONF-SEAL-027", category: "Metamorphosis", stock: 92, description: "Sealed vial. Open only when you need it. Contains pure confidence. May cause you to do something wild. You probably won't regret it.", specs: { "Format": "Sealed vial", "Side Effect": "You'll go for it", "Recovery": "Won't need it" }, icon: "geometric", color: "#C8B8D4" },
-  { id: 28, name: "Your Unspoken Boundaries", sku: "BOUND-028", category: "Metamorphosis", stock: 54, description: "Written on parchment. All the times you weren't honest. All the things you should have said no to. Permission slip included.", specs: { "Format": "Parchment", "Contents": "Every boundary broken", "Enforceability": "Up to you" }, icon: "geometric", color: "#C8B8D4" },
-  { id: 29, name: "Motivation That Doesn't Feel Forced", sku: "MOTIV-029", category: "Metamorphosis", stock: 72, description: "Organic motivation. Shows up at the right moments. Doesn't feel fake. Lasts indefinitely. Source unknown.", specs: { "Timing": "Perfect", "Sustainability": "Real", "Shelf Life": "Permanent" }, icon: "geometric", color: "#C8B8D4" },
-  { id: 30, name: "Permission to Stop Trying So Hard", sku: "PERM-030", category: "Metamorphosis", stock: 80, description: "Official document signed by the universe. You can rest now. No asterisks. No conditions. This is real permission.", specs: { "Format": "Certificate", "Signed": "By everything", "Validity": "Eternal" }, icon: "geometric", color: "#C8B8D4" },
-  { id: 31, name: "The Apology You Owe Yourself (II)", sku: "APOL-SELF-031", category: "Metamorphosis", stock: 13, description: "Handwritten apology from the universe. Dated. Sealed. Elegant. Forgiving. Contains actual forgiveness inside.", specs: { "Format": "Sealed letter", "Contents": "Real forgiveness", "Authenticity": "Real enough" }, icon: "geometric", color: "#C8B8D4" },
-  { id: 32, name: "What You'd Tell Your Younger Self", sku: "YOUNG-032", category: "Metamorphosis", stock: 95, description: "Letter from where you are now to where you were. Everything you know. Warning: it might say 'do it exactly the same way.'", specs: { "Format": "Sealed letter", "Honesty": "Maximum", "Regret": "Minimal" }, icon: "geometric", color: "#C8B8D4" },
+  { id: 27, name: "Confidence You Didn't Know You Had", sku: "CONF-SEAL-027", category: "Metamorphosis", stock: 92, description: "Sealed vial. Open only when you need it. Contains pure confidence. May cause you to do something wild. You probably won't regret it.", specs: { "Format": "Sealed vial", "Side Effect": "You'll go for it", "Recovery": "Won't need it" }, lore: "The vial contains something that manifests differently per user. One person described pure confidence. Another described the absence of doubt, which they report is completely different. Third case: described nothing, then went skydiving.", icon: "geometric", color: "#C8B8D4" },
+  { id: 28, name: "Your Unspoken Boundaries", sku: "BOUND-028", category: "Metamorphosis", stock: 54, description: "Written on parchment. All the times you weren't honest. All the things you should have said no to. Permission slip included.", specs: { "Format": "Parchment", "Contents": "Every boundary broken", "Enforceability": "Up to you" }, lore: "Written in handwriting that matches yours exactly but you don't recognize. Every boundary is documented. The permission slip is notarized by someone named 'You.' One buyer framed it. Another claims it updated after they set new boundaries.", icon: "geometric", color: "#C8B8D4" },
+  { id: 29, name: "Motivation That Doesn't Feel Forced", sku: "MOTIV-029", category: "Metamorphosis", stock: 72, description: "Organic motivation. Shows up at the right moments. Doesn't feel fake. Lasts indefinitely. Source unknown.", specs: { "Timing": "Perfect", "Sustainability": "Real", "Shelf Life": "Permanent" }, lore: "Source is unknown. Sustainability testing shows it doesn't deplete. Timing is uncanny—it arrives precisely when needed, not before. One buyer reports the motivation showed up three days before they needed it.", icon: "geometric", color: "#C8B8D4" },
+  { id: 30, name: "Permission to Stop Trying So Hard", sku: "PERM-030", category: "Metamorphosis", stock: 80, description: "Official document signed by the universe. You can rest now. No asterisks. No conditions. This is real permission.", specs: { "Format": "Certificate", "Signed": "By everything", "Validity": "Eternal" }, lore: "The certificate is from the universe. Multiple customers have verified the signature is real. One buyer claims the signature appeared after they stopped trying so hard. Another says they've never opened it—the effect is retroactive.", icon: "geometric", color: "#C8B8D4" },
+  { id: 31, name: "The Apology You Owe Yourself (II)", sku: "APOL-SELF-031", category: "Metamorphosis", stock: 13, description: "Handwritten apology from the universe. Dated. Sealed. Elegant. Forgiving. Contains actual forgiveness inside.", specs: { "Format": "Sealed letter", "Contents": "Real forgiveness", "Authenticity": "Real enough" }, lore: "Handwritten by someone. Signature withheld. Dated appropriately. The forgiveness inside is real enough to matter. One buyer cried. Another claims the forgiveness updated after they apologized to themselves.", icon: "geometric", color: "#C8B8D4" },
+  { id: 32, name: "What You'd Tell Your Younger Self", sku: "YOUNG-032", category: "Metamorphosis", stock: 95, description: "Letter from where you are now to where you were. Everything you know. Warning: it might say 'do it exactly the same way.'", specs: { "Format": "Sealed letter", "Honesty": "Maximum", "Regret": "Minimal" }, lore: "Sealed letter. Your handwriting or something very close. The advice is specific to your current life, not your past. One buyer reports the letter contains a reference to an event that hasn't happened yet. They're waiting for it.", icon: "geometric", color: "#C8B8D4" },
 ];
 
 const stockState = {};
@@ -243,7 +243,122 @@ function ReviewsPopover({ product, userReviews }) {
   );
 }
 
-function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, dailyLimit, userReviews }) {
+function ProductModal({ product, onClose, allReviews, isMobile, onAddToCart, inCart, stock }) {
+  if (!product) return null;
+  const productReviews = getReviews(product.id, allReviews);
+  const isOutOfStock = stock === 0;
+  return (
+    <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "#06040Add", backdropFilter: "blur(8px)", zIndex: 2100, display: "flex", alignItems: isMobile ? "flex-end" : "center", justifyContent: "center", padding: 16 }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ background: "linear-gradient(145deg, #06040A, #0d0618)", border: "1px solid #2a1540", borderRadius: isMobile ? "16px 16px 0 0" : 3, width: "100%", maxWidth: isMobile ? "100%" : 680, maxHeight: "90vh", overflowY: "auto", padding: isMobile ? 20 : 32, position: "relative" }}>
+        <button onClick={onClose} style={{ position: "absolute", top: 12, right: 12, background: "none", border: "none", color: "#3a2a4a", fontSize: 24, cursor: "pointer", width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", transition: "color 0.2s" }} onMouseEnter={(e) => e.target.style.color = "#4DFFC3"} onMouseLeave={(e) => e.target.style.color = "#3a2a4a"}>✕</button>
+
+        {/* Header with image and basic info */}
+        <div style={{ marginBottom: 28 }}>
+          {PRODUCT_IMAGES[product.id] ? (
+            <div style={{ width: "100%", height: "300px", borderRadius: 3, overflow: "hidden", marginBottom: 20, position: "relative" }}>
+              <img src={PRODUCT_IMAGES[product.id]} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", filter: "brightness(0.88) contrast(1.1)" }} />
+              <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to bottom, transparent 50%, ${product.color}22 100%)` }} />
+            </div>
+          ) : null}
+
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
+            <div>
+              <div style={{ fontFamily: "'Cinzel', serif", fontSize: isMobile ? 20 : 24, color: "#E8DFF0", marginBottom: 4, letterSpacing: "1px" }}>{product.name}</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                <span style={{ fontSize: 9, color: "#3a2a4a", letterSpacing: "2px" }}>{product.category.toUpperCase()}</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: product.color, letterSpacing: "1px" }}>{product.sku}</span>
+              </div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <div style={{ fontFamily: "'Cinzel', serif", fontSize: 14, color: "#4DFFC3", letterSpacing: "2px", marginBottom: 4 }}>FREE</div>
+              <div style={{ fontSize: 9, color: product.stock === 0 ? "#FF6B4A" : product.stock < 5 ? "#FFD166" : "#3a2a4a", letterSpacing: "1px" }}>
+                {product.stock === 0 ? "OUT OF STOCK" : product.stock < 5 ? `ONLY ${product.stock}` : `${product.stock} AVAILABLE`}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Description */}
+        <div style={{ marginBottom: 24, paddingBottom: 20, borderBottom: "1px solid #1a0a2e" }}>
+          <div style={{ fontSize: 11, color: "#3a2a4a", letterSpacing: "2px", marginBottom: 10, textTransform: "uppercase" }}>Description</div>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#C8B8D4", lineHeight: 1.7, margin: 0 }}>{product.description}</p>
+        </div>
+
+        {/* Lore */}
+        {product.lore && (
+          <div style={{ marginBottom: 24, paddingBottom: 20, borderBottom: "1px solid #1a0a2e" }}>
+            <div style={{ fontSize: 11, color: "#3a2a4a", letterSpacing: "2px", marginBottom: 10, textTransform: "uppercase" }}>Archive Notes</div>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#7a5a8a", lineHeight: 1.8, margin: 0 }}>{product.lore}</p>
+          </div>
+        )}
+
+        {/* All Specs */}
+        <div style={{ marginBottom: 24, paddingBottom: 20, borderBottom: "1px solid #1a0a2e" }}>
+          <div style={{ fontSize: 11, color: "#3a2a4a", letterSpacing: "2px", marginBottom: 12, textTransform: "uppercase" }}>Specifications</div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+            {Object.entries(product.specs).map(([key, val]) => (
+              <div key={key}>
+                <div style={{ fontSize: 9, color: "#3a2a4a", letterSpacing: "1.5px", marginBottom: 4 }}>{key.toUpperCase()}</div>
+                <div style={{ fontSize: 11, color: "#C8B8D4" }}>{val}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Reviews */}
+        <div>
+          <div style={{ fontSize: 11, color: "#3a2a4a", letterSpacing: "2px", marginBottom: 14, textTransform: "uppercase" }}>{productReviews.length} Reviews</div>
+          {productReviews.length === 0 ? (
+            <div style={{ fontSize: 11, color: "#2a1540", textAlign: "center", padding: "20px 0" }}>No reviews yet.</div>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {productReviews.map((review, idx) => (
+                <div key={idx} style={{ background: "#0d061866", border: "1px solid #1a0a2e", borderRadius: 2, padding: 12 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <span style={{ fontSize: 11, color: "#C8B8D4", fontWeight: 600 }}>{review.author}</span>
+                      <div style={{ display: "inline-flex", gap: 2 }}>
+                        {Array.from({ length: 5 }).map((_, i) => <span key={i} style={{ color: i < review.rating ? "#4DFFC3" : "#2a1a3a", fontSize: 9 }}>★</span>)}
+                      </div>
+                    </div>
+                    <span style={{ fontSize: 9, color: "#3a2a4a" }}>{review.date}</span>
+                  </div>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#7a5a8a", margin: 0, lineHeight: 1.6 }}>{review.text}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Add to Cart Button */}
+        <div style={{ marginTop: 28, paddingTop: 20, borderTop: "1px solid #1a0a2e" }}>
+          <button
+            onClick={(e) => { e.stopPropagation(); onAddToCart(product); }}
+            disabled={isOutOfStock || inCart}
+            style={{
+              width: "100%",
+              background: inCart ? "transparent" : isOutOfStock ? "transparent" : "linear-gradient(135deg, #1a0a2e, #2a0d40)",
+              border: `1px solid ${inCart ? "#4DFFC3" : isOutOfStock ? "#FF6B4A" : "#4DFFC3"}`,
+              color: inCart ? "#4DFFC3" : isOutOfStock ? "#FF6B4A" : "#4DFFC3",
+              fontFamily: "'Cinzel', serif",
+              fontSize: 12,
+              letterSpacing: "2px",
+              padding: "16px",
+              cursor: isOutOfStock ? "default" : "pointer",
+              borderRadius: 2,
+              minHeight: "48px",
+              transition: "all 0.15s",
+            }}
+          >
+            {inCart ? "✓ IN CART" : isOutOfStock ? "OUT OF STOCK" : "ADD TO CART"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, dailyLimit, userReviews, onExpand }) {
   const [hovered, setHovered] = useState(false);
   const [added, setAdded] = useState(false);
   const isOutOfStock = stock === 0;
@@ -261,6 +376,7 @@ function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, daily
 
   return (
     <div
+      onClick={() => onExpand && onExpand(product)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -268,11 +384,12 @@ function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, daily
         border: `1px solid ${hovered && btnActive ? product.color + "55" : "#1a0a2e"}`,
         borderRadius: 3,
         padding: "14px",
-        opacity: isOutOfStock || limitReached ? 0.45 : 1,
+        opacity: stock === 0 || purchaseCount >= dailyLimit ? 0.45 : 1,
         display: "flex",
         flexDirection: "column",
         gap: 0,
         transition: "border-color 0.2s, background 0.2s",
+        cursor: "pointer",
       }}
     >
       {/* Product Image or Icon */}
@@ -338,7 +455,7 @@ function ProductCard({ product, onAddToCart, inCart, stock, purchaseCount, daily
       <div>
         <div style={{ fontFamily: "'Cinzel', serif", fontSize: 11, color: "#4DFFC3", letterSpacing: "2px", marginBottom: 6 }}>FREE</div>
         <button
-          onClick={handleAdd}
+          onClick={(e) => { e.stopPropagation(); handleAdd(); }}
           disabled={!btnActive}
           style={{
             width: "100%",
@@ -1229,6 +1346,7 @@ export default function App() {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [filter, setFilter] = useState("ALL");
   const [glitchPhase, setGlitchPhase] = useState("idle");
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const logoTaps = useRef(0);
   const logoTimer = useRef(null);
 
@@ -1452,12 +1570,13 @@ export default function App() {
             const aHasImg = !!PRODUCT_IMAGES[a.id];
             const bHasImg = !!PRODUCT_IMAGES[b.id];
             return bHasImg - aHasImg; // true (1) sorts before false (0)
-          }).map(product => (<ProductCard key={product.id} product={product} onAddToCart={addToCart} inCart={cart.some(i => i.id === product.id)} stock={stocks[product.id]} purchaseCount={purchaseCount} dailyLimit={DAILY_LIMIT} userReviews={userReviews} />))}
+          }).map(product => (<ProductCard key={product.id} product={product} onAddToCart={addToCart} inCart={cart.some(i => i.id === product.id)} stock={stocks[product.id]} purchaseCount={purchaseCount} dailyLimit={DAILY_LIMIT} userReviews={userReviews} onExpand={setSelectedProduct} />))}
         </div>
       </main>
       {cartOpen && <div onClick={() => setCartOpen(false)} style={{ position: "fixed", inset: 0, background: "#00000055", zIndex: 999 }} />}
       {cartOpen && <CartDrawer cart={cart} onRemove={removeFromCart} onCheckout={() => { setCartOpen(false); setCheckoutOpen(true); }} onClose={() => setCartOpen(false)} isMobile={isMobile} />}
       {checkoutOpen && <CheckoutModal cart={cart} onClose={() => setCheckoutOpen(false)} onComplete={(snap) => handleCheckoutComplete(snap || cart)} onSubmitReviews={addReviews} isMobile={isMobile} />}
+      {selectedProduct && <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} allReviews={userReviews} isMobile={isMobile} onAddToCart={addToCart} inCart={cart.some(i => i.id === selectedProduct.id)} stock={stocks[selectedProduct.id]} />}
       {glitchPhase === "glitching" && <GlitchOverlay />}
     </div>
     {glitchPhase === "crashed" && <CrashScreen cartCount={cart.length} onReset={() => setGlitchPhase("idle")} />}
