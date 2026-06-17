@@ -376,7 +376,7 @@ function CheckoutModal({ cart, onClose, onComplete, onSubmitReviews, isMobile })
         {/* Step 2: Choose Platform to Follow */}
         {step === 2 && (
           <>
-            <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 20, color: "#E8DFF0", margin: "0 0 8px", letterSpacing: "2px" }}>FOLLOW @THE OUTER POST</h2>
+            <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 20, color: "#E8DFF0", margin: "0 0 8px", letterSpacing: "2px" }}>FOLLOW @THE.OUTER.POST</h2>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#5a3a6a", margin: "0 0 24px" }}>Choose where you follow us to unlock your haul preview.</p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -399,8 +399,55 @@ function CheckoutModal({ cart, onClose, onComplete, onSubmitReviews, isMobile })
           </>
         )}
 
-        {/* Step 3: Show Haul to Screenshot */}
+        {/* Step 3: Leave a Review */}
         {step === 3 && (
+          <>
+            <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 20, color: "#E8DFF0", margin: "0 0 8px", letterSpacing: "2px" }}>RATE YOUR ACQUISITIONS</h2>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#5a3a6a", margin: "0 0 20px" }}>Your testimony helps the next person decide what to risk. It posts to the product.</p>
+
+            <input
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              placeholder="signed as… (optional)"
+              style={{ width: "100%", background: "#06040A", border: "1px solid #2a1540", borderRadius: 2, color: "#E8DFF0", fontFamily: "'Inter', sans-serif", fontSize: 12, padding: 12, marginBottom: 16 }}
+            />
+
+            {cart.map(item => {
+              const d = reviewDraft[item.id] || { rating: 5, text: "" };
+              return (
+                <div key={item.id} style={{ background: "#0d0618", border: `1px solid ${item.color}22`, borderRadius: 2, padding: 14, marginBottom: 12 }}>
+                  <p style={{ fontFamily: "'Cinzel', serif", fontSize: 12, color: "#C8B8D4", margin: "0 0 8px" }}>{item.name}</p>
+                  <div style={{ marginBottom: 10 }}>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span key={i} onClick={() => setDraft(item.id, { rating: i + 1 })} style={{ color: i < d.rating ? "#4DFFC3" : "#2a1a3a", marginRight: 6, fontSize: 18, cursor: "pointer" }}>★</span>
+                    ))}
+                  </div>
+                  <textarea
+                    value={d.text}
+                    onChange={(e) => setDraft(item.id, { text: e.target.value })}
+                    placeholder="It did something. Hard to say what."
+                    rows={2}
+                    style={{ width: "100%", background: "#06040A", border: "1px solid #2a1540", borderRadius: 2, color: "#E8DFF0", fontFamily: "'Inter', sans-serif", fontSize: 12, padding: 10, resize: "vertical", lineHeight: 1.5 }}
+                  />
+                </div>
+              );
+            })}
+
+            <button
+              onClick={handleSubmitReviews}
+              style={{ width: "100%", background: "linear-gradient(135deg, #1a0a2e, #2a0d40)", border: "1px solid #4DFFC3", color: "#4DFFC3", fontFamily: "'Cinzel', serif", fontSize: 12, letterSpacing: "2px", padding: "16px", cursor: "pointer", borderRadius: 2, minHeight: "48px", marginBottom: 10 }}>
+              POST &amp; CONTINUE
+            </button>
+            <button
+              onClick={() => setStep(4)}
+              style={{ width: "100%", background: "transparent", border: "1px solid #2a1540", color: "#5a3a6a", fontFamily: "'Inter', sans-serif", fontSize: 11, letterSpacing: "2px", padding: "14px", cursor: "pointer", borderRadius: 2, minHeight: "44px" }}>
+              SKIP
+            </button>
+          </>
+        )}
+
+        {/* Step 4: Show Haul to Screenshot */}
+        {step === 4 && (
           <>
             <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 20, color: "#E8DFF0", margin: "0 0 8px", letterSpacing: "2px" }}>YOUR HAUL</h2>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#5a3a6a", margin: "0 0 24px" }}>Screenshot and share to your story.</p>
@@ -428,7 +475,7 @@ function CheckoutModal({ cart, onClose, onComplete, onSubmitReviews, isMobile })
               ))}
 
               <div style={{ textAlign: "center", marginTop: 12, paddingTop: 12, borderTop: "1px solid #1a0a2e" }}>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 8, color: "#3a2a4a", margin: 0 }}>@theouterpost 🌌</p>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 8, color: "#3a2a4a", margin: 0 }}>@the.outer.post 🌌</p>
               </div>
             </div>
 
@@ -453,7 +500,7 @@ const NOISE_BG = "data:image/svg+xml;utf8," + encodeURIComponent(
 
 function GlitchOverlay() {
   return (
-    <div style={{ position: "fixed", inset: 0, zIndex: 5000, pointerEvents: "none" }}>
+    <div style={{ position: "fixed", inset: 0, zIndex: 5000, pointerEvents: "none", animation: "opOverlayIn 3.2s ease-in forwards" }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${NOISE_BG}")`, opacity: 0.14, mixBlendMode: "screen" }} />
       <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(0deg, rgba(0,0,0,0.4) 0 1px, transparent 1px 3px)", animation: "opFlicker 0.3s steps(2) infinite" }} />
       <div style={{ position: "absolute", inset: 0, mixBlendMode: "screen", background: "linear-gradient(90deg, rgba(255,0,128,0.10), transparent 28%, transparent 72%, rgba(77,255,195,0.12))" }} />
@@ -468,7 +515,7 @@ function CrashScreen({ onReset, cartCount }) {
   const mono = "ui-monospace, 'SFMono-Regular', Menlo, 'Courier New', monospace";
 
   return (
-    <div style={{ position: "fixed", inset: 0, zIndex: 6000, background: "#06040A", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, fontFamily: mono, animation: "opFlicker 5s steps(10) infinite" }}>
+    <div style={{ position: "fixed", inset: 0, zIndex: 6000, background: "#06040A", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, fontFamily: mono, animation: "opCrashIn 0.9s ease-out, opFlicker 5s steps(10) 0.9s infinite" }}>
       <div style={{ width: "100%", maxWidth: 560, color: "#7a9a90", fontSize: 13, lineHeight: 1.85 }}>
         <div style={{ color: "#FF6B4A", letterSpacing: "3px", fontSize: 10, marginBottom: 18 }}>■ SIGNAL LOST</div>
         <div style={{ color: "#4DFFC3", fontSize: 22, fontWeight: 700, letterSpacing: "2px", marginBottom: 4, textShadow: "2px 0 #FF008855, -2px 0 #00FFC855" }}>REALITY_DESYNC</div>
@@ -526,6 +573,24 @@ export default function App() {
     return parseInt(saved || "0", 10);
   });
   const DAILY_LIMIT = 999; // Disabled for testing
+  const [userReviews, setUserReviews] = useState(() => {
+    if (typeof window === "undefined") return {};
+    try { return JSON.parse(localStorage.getItem("outerpost_reviews") || "{}"); }
+    catch { return {}; }
+  });
+
+  const addReviews = (list) => {
+    setUserReviews(prev => {
+      const next = { ...prev };
+      list.forEach(({ productId, review }) => {
+        next[productId] = [review, ...(next[productId] || [])];
+      });
+      if (typeof window !== "undefined") {
+        try { localStorage.setItem("outerpost_reviews", JSON.stringify(next)); } catch {}
+      }
+      return next;
+    });
+  };
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -553,7 +618,7 @@ export default function App() {
   // Glitch holds briefly, then collapses into the crash screen
   useEffect(() => {
     if (glitchPhase !== "glitching") return;
-    const t = setTimeout(() => setGlitchPhase("crashed"), 1900);
+    const t = setTimeout(() => setGlitchPhase("crashed"), 6200);
     return () => clearTimeout(t);
   }, [glitchPhase]);
 
@@ -585,13 +650,13 @@ export default function App() {
   return (
     <>
     <div className={glitchPhase === "glitching" ? "op-glitch" : undefined} style={{ minHeight: "100vh", background: "#06040A", color: "#E8DFF0", overflowX: "hidden" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');*{box-sizing:border-box;margin:0;padding:0}body{background:#06040A}::selection{background:#4DFFC322;color:#4DFFC3}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#06040A}::-webkit-scrollbar-thumb{background:#2a1540;border-radius:2px}input::placeholder{color:#2a1a3a}input:focus{border-color:#4DFFC3!important;outline:none}@keyframes twinkle{0%,100%{opacity:var(--op)}50%{opacity:calc(var(--op)*0.15)}}@keyframes opShake{0%,100%{transform:translate(0,0)}15%{transform:translate(-4px,2px)}30%{transform:translate(3px,-3px)}45%{transform:translate(-2px,-1px)}60%{transform:translate(4px,1px)}75%{transform:translate(-3px,3px)}90%{transform:translate(2px,-2px)}}@keyframes opHue{0%{filter:none}25%{filter:hue-rotate(60deg) saturate(1.5) contrast(1.1)}45%{filter:invert(0.08) hue-rotate(-40deg)}65%{filter:hue-rotate(120deg) saturate(2)}85%{filter:invert(0.04)}100%{filter:none}}@keyframes opFlicker{0%,100%{opacity:1}8%{opacity:0.35}10%{opacity:1}38%{opacity:0.7}40%{opacity:1}66%{opacity:0.15}68%{opacity:1}}@keyframes opSweep{0%{transform:translateY(-30vh)}100%{transform:translateY(130vh)}}@keyframes opBlink{0%,49%{opacity:1}50%,100%{opacity:0}}.op-glitch{animation:opShake 0.16s steps(2) infinite, opHue 1.7s linear infinite}@media (prefers-reduced-motion:reduce){.op-glitch{animation:opHue 1.7s linear infinite}}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}@media (max-width:768px){.grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}}@media (max-width:480px){.grid{grid-template-columns:1fr;gap:12px}}`}</style>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');*{box-sizing:border-box;margin:0;padding:0}body{background:#06040A}::selection{background:#4DFFC322;color:#4DFFC3}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#06040A}::-webkit-scrollbar-thumb{background:#2a1540;border-radius:2px}input::placeholder,textarea::placeholder{color:#5a3a6a}input:focus,textarea:focus{border-color:#4DFFC3!important;outline:none}@keyframes twinkle{0%,100%{opacity:var(--op)}50%{opacity:calc(var(--op)*0.15)}}@keyframes opShake{0%,100%{transform:translate(0,0)}15%{transform:translate(-4px,2px)}30%{transform:translate(3px,-3px)}45%{transform:translate(-2px,-1px)}60%{transform:translate(4px,1px)}75%{transform:translate(-3px,3px)}90%{transform:translate(2px,-2px)}}@keyframes opHue{0%{filter:none}25%{filter:hue-rotate(60deg) saturate(1.5) contrast(1.1)}45%{filter:invert(0.08) hue-rotate(-40deg)}65%{filter:hue-rotate(120deg) saturate(2)}85%{filter:invert(0.04)}100%{filter:none}}@keyframes opFlicker{0%,100%{opacity:1}8%{opacity:0.35}10%{opacity:1}38%{opacity:0.7}40%{opacity:1}66%{opacity:0.15}68%{opacity:1}}@keyframes opSweep{0%{transform:translateY(-30vh)}100%{transform:translateY(130vh)}}@keyframes opBlink{0%,49%{opacity:1}50%,100%{opacity:0}}@keyframes opOverlayIn{0%{opacity:0}100%{opacity:1}}@keyframes opCrashIn{0%{opacity:0}100%{opacity:1}}@keyframes opFracture{0%{transform:translate(0,0);filter:none;opacity:1}6%{transform:translate(-1px,1px)}12%{transform:translate(2px,-1px) skewX(0.3deg);filter:drop-shadow(2px 0 #FF0080) drop-shadow(-2px 0 #00FFC8) hue-rotate(15deg)}20%{transform:translate(-3px,2px) skewX(-0.5deg)}28%{transform:translate(3px,-2px) skewY(0.5deg);filter:drop-shadow(4px 0 #FF0080) drop-shadow(-4px 0 #00FFC8) hue-rotate(-25deg) saturate(1.3)}36%{transform:translate(-5px,3px) skewX(0.9deg)}44%{transform:translate(6px,-4px) skewX(-1.1deg) scale(1.004);filter:drop-shadow(7px 0 #FF0080) drop-shadow(-7px 0 #00FFC8) hue-rotate(45deg) saturate(1.5)}52%{transform:translate(-8px,5px) skewY(-1.2deg)}60%{transform:translate(9px,-6px) skewX(1.6deg) scale(0.996);filter:drop-shadow(11px 0 #FF0080) drop-shadow(-11px 0 #00FFC8) hue-rotate(-70deg) saturate(1.8) contrast(1.1)}68%{transform:translate(-12px,7px) skewY(1.8deg)}76%{transform:translate(14px,-9px) skewX(-2.2deg) rotate(0.4deg);filter:drop-shadow(17px 0 #FF0080) drop-shadow(-17px 0 #00FFC8) hue-rotate(100deg) saturate(2) contrast(1.2)}84%{transform:translate(-18px,11px) skewY(-2.6deg) rotate(-0.5deg)}91%{transform:translate(22px,-14px) skewX(3deg) scale(1.012);filter:drop-shadow(25px 0 #FF0080) drop-shadow(-25px 0 #00FFC8) hue-rotate(150deg) saturate(2.4) brightness(1.15)}96%{transform:translate(-28px,16px) skewY(3.4deg) rotate(0.8deg);filter:drop-shadow(32px 0 #FF0080) drop-shadow(-32px 0 #00FFC8) hue-rotate(-160deg) saturate(2.6)}100%{transform:scale(1.05) rotate(-0.7deg);filter:blur(4px) brightness(0.35) drop-shadow(40px 0 #FF0080) drop-shadow(-40px 0 #00FFC8);opacity:0.12}}@keyframes opFractureRM{0%{filter:none;opacity:1}60%{filter:hue-rotate(90deg) saturate(1.6)}100%{filter:brightness(0.4);opacity:0.15}}.op-glitch{animation:opFracture 6.2s cubic-bezier(.36,.07,.6,.97) forwards;transform-origin:center;will-change:transform,filter}@media (prefers-reduced-motion:reduce){.op-glitch{animation:opFractureRM 6.2s linear forwards}}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}@media (max-width:768px){.grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}}@media (max-width:480px){.grid{grid-template-columns:1fr;gap:12px}}`}</style>
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
         {Array.from({ length: 70 }).map((_, i) => (<div key={i} style={{ position: "absolute", left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`, width: 2, height: 2, borderRadius: "50%", background: Math.random() > 0.85 ? "#4DFFC3" : "#C8B8D4", opacity: Math.random() * 0.4 + 0.1, animation: `twinkle ${Math.random() * 5 + 2}s ease-in-out ${Math.random() * 4}s infinite`, "--op": Math.random() * 0.4 + 0.1 }} />))}
       </div>
-      <header style={{ position: "sticky", top: 0, zIndex: 100, background: "#06040Aee", backdropFilter: "blur(14px)", borderBottom: "1px solid #1a0a2e", padding: isMobile ? "12px 16px" : "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: isMobile ? 56 : 62 }}>
+      <header style={{ position: "sticky", top: 0, zIndex: 100, background: "#06040Aee", backdropFilter: "blur(14px)", borderBottom: "1px solid #1a0a2e", padding: isMobile ? "12px 16px" : "0 32px", display: "flex", alignItems: "center", justifyContent: "center", height: isMobile ? 56 : 62 }}>
         <h1 onClick={handleLogoTap} style={{ fontFamily: "'Cinzel', serif", fontSize: isMobile ? 14 : 16, fontWeight: 700, letterSpacing: "2px", color: "#E8DFF0", cursor: "pointer", userSelect: "none" }}>THE <span style={{ color: "#4DFFC3" }}>OUTER</span>POST</h1>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div style={{ position: "absolute", right: isMobile ? 16 : 32, display: "flex", alignItems: "center", gap: 8 }}>
           {purchaseCount > 0 && <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 8, color: "#4DFFC3", letterSpacing: "1px" }}>{purchaseCount}/3 TODAY</div>}
           <button onClick={() => setCartOpen(true)} style={{ background: "transparent", border: "1px solid #2a1540", borderRadius: 1, padding: "8px 12px", cursor: "pointer", color: "#C8B8D4", fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: "1.5px", display: "flex", alignItems: "center", gap: 6, minHeight: "44px" }}>
             ⬡ {cart.length > 0 && <span style={{ background: "#4DFFC3", color: "#06040A", borderRadius: "50%", width: 18, height: 18, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, fontWeight: 700 }}>{cart.length}</span>}
@@ -607,12 +672,12 @@ export default function App() {
       </section>
       <main style={{ position: "relative", zIndex: 1, maxWidth: 1180, margin: "0 auto", padding: isMobile ? "0 12px 60px" : "0 32px 80px" }}>
         <div className="grid">
-          {filtered.map(product => (<ProductCard key={product.id} product={product} onAddToCart={addToCart} inCart={cart.some(i => i.id === product.id)} stock={stocks[product.id]} purchaseCount={purchaseCount} dailyLimit={DAILY_LIMIT} />))}
+          {filtered.map(product => (<ProductCard key={product.id} product={product} onAddToCart={addToCart} inCart={cart.some(i => i.id === product.id)} stock={stocks[product.id]} purchaseCount={purchaseCount} dailyLimit={DAILY_LIMIT} userReviews={userReviews} />))}
         </div>
       </main>
       {cartOpen && <div onClick={() => setCartOpen(false)} style={{ position: "fixed", inset: 0, background: "#00000055", zIndex: 999 }} />}
       {cartOpen && <CartDrawer cart={cart} onRemove={removeFromCart} onCheckout={() => { setCartOpen(false); setCheckoutOpen(true); }} onClose={() => setCartOpen(false)} isMobile={isMobile} />}
-      {checkoutOpen && <CheckoutModal cart={cart} onClose={() => setCheckoutOpen(false)} onComplete={handleCheckoutComplete} isMobile={isMobile} />}
+      {checkoutOpen && <CheckoutModal cart={cart} onClose={() => setCheckoutOpen(false)} onComplete={handleCheckoutComplete} onSubmitReviews={addReviews} isMobile={isMobile} />}
       {glitchPhase === "glitching" && <GlitchOverlay />}
     </div>
     {glitchPhase === "crashed" && <CrashScreen cartCount={cart.length} onReset={() => setGlitchPhase("idle")} />}
